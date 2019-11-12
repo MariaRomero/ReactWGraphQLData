@@ -1,8 +1,8 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { Fragment } from "react";
 import "./App.css";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
+import ReactList from "react-list";
 
 const GET_POKEMON_INFO = gql`
   {
@@ -16,43 +16,40 @@ const GET_POKEMON_INFO = gql`
 `;
 
 function App() {
-  const { data, loading, error } = useQuery(GET_POKEMON_INFO);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error, {error}</p>;
+  const { data, error } = useQuery(GET_POKEMON_INFO);
 
   return (
-    <React.Fragment>
-      <h1>Pokemon List</h1>
-      <div className="container">
-        {data &&
-          data.pokemons &&
-          data.pokemons.map((pokemon, index) => (
-            <div key={index} className="card">
-              <img src={pokemon.image} />
-              <div class="card-body">
-                <h3>{pokemon.name}</h3>
-              </div>
-            </div>
-          ))}
+    <Fragment>
+      {error && <p>Error, {error}</p>}
+      {!data ? <p>loading</p> : <h1>Pokemon List</h1>}
+      <div>
+        {data && data.pokemons && (
+          <ReactList
+            itemRenderer={(index, key) => {
+              return (
+                <div
+                  key={key}
+                  style={{
+                    height: "20px",
+                    padding: "6px 6px 6px 6px"
+                  }}
+                >
+                  <img
+                    alt="some value"
+                    src={data.pokemons[index]["image"]}
+                    style={{ height: "20px", padding: "0 6px 0 6px" }}
+                  />
+                  {data.pokemons[index]["name"]} (
+                  {data.pokemons[index]["number"]})
+                </div>
+              );
+            }}
+            length={data.pokemons.length}
+            type="simple"
+          />
+        )}
       </div>
-    </React.Fragment>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
+    </Fragment>
   );
 }
 
