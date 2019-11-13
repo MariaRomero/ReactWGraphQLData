@@ -21,13 +21,11 @@ const GET_POKEMON_INFO = gql`
 
 function App() {
   const { data, error } = useQuery(GET_POKEMON_INFO);
-
   const [currentPokemon, setCurrentPokemon] = useState(null);
 
-  const handleClick = (event, pokemonId) => {
-    // console.log("data", data);
-    // console.log(data.pokemons[pokemonId]);
+  if (error) return <div>Error! {error.message}</div>;
 
+  const handleClick = (event, pokemonId) => {
     setCurrentPokemon(data.pokemons[pokemonId]);
   };
 
