@@ -1,16 +1,6 @@
 body {
   margin: 20px;
-  font-family: "McLaren";
+  font-family: McLaren;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  grid-gap: 60px;
-}
-
-.container > .card img {
-  max-width: 100%;
 }

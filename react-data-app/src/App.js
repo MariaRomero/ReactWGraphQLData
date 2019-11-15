@@ -31,53 +31,35 @@ function App() {
 
   return (
     <Fragment>
-      {error && <p>Error, {error}</p>}
       {!data ? <p>loading</p> : <h1>Pokemon List</h1>}
-      <div
-        style={{
-          overflow: "auto",
-          maxHeight: 400,
-          width: "40%",
-          display: "inline-block"
-        }}
-      >
-        {" "}
-        {data && data.pokemons && (
-          <ReactList
-            itemRenderer={(index, key) => {
-              return (
-                <div
-                  key={key}
-                  onClick={event => handleClick(event, index)}
-                  style={{
-                    height: "20px",
-                    padding: "6px 6px 6px 6px"
-                  }}
-                >
-                  <img
-                    alt="some value"
-                    src={data.pokemons[index]["image"]}
-                    style={{ height: "20px", padding: "0 6px 0 6px" }}
-                  />
-                  {data.pokemons[index]["name"]} -
-                  {data.pokemons[index]["number"]}
-                </div>
-              );
-            }}
-            length={data.pokemons.length}
-            type="simple"
-          />
-        )}
-      </div>
-      <div
-        style={{
-          display: "inline-block",
-          width: "40%",
-          backgroundColor: "#ccc9cb",
-          height: "calc(65vh - 55px)"
-        }}
-      >
-        {currentPokemon && <Pokemon item={currentPokemon} />}
+      <div className="container">
+        <div className="poke-list">
+          {data && data.pokemons && (
+            <ReactList
+              itemRenderer={(index, key) => {
+                return (
+                  <div
+                    className="poke-selected"
+                    key={key}
+                    onClick={event => handleClick(event, index)}
+                  >
+                    <img
+                      alt={data.pokemons[index]["name"]}
+                      src={data.pokemons[index]["image"]}
+                    />
+                    {data.pokemons[index]["name"]} -
+                    {data.pokemons[index]["number"]}
+                  </div>
+                );
+              }}
+              length={data.pokemons.length}
+              type="simple"
+            />
+          )}
+        </div>
+        <div className="poke-view-selected">
+          {currentPokemon && <Pokemon item={currentPokemon} />}
+        </div>
       </div>
     </Fragment>
   );

@@ -6,7 +6,7 @@ import { onError } from "apollo-link-error";
 export const dataObj = () => {
   const cache = new InMemoryCache();
   const httpLink = new HttpLink({
-    uri: "https://graphql-pokemon.now.shs/"
+    uri: "https://graphql-pokemon.now.sh/"
   });
 
   const errorLink = onError(({ graphQLErrors, networkError }) => {
