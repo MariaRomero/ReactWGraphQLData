@@ -9,7 +9,7 @@ import { ApolloClient } from "apollo-client";
 
 const client = new ApolloClient(dataObj());
 
-render(
+ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
   </ApolloProvider>,
