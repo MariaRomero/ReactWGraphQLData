@@ -6,7 +6,7 @@ const Pokemon = ({
   return (
     <>
       <div>
-        <img className="Pokemon" alt={name} src={image} />
+        <img className="pokemon-img" alt={name} src={image} />
         <p>Name: {name}</p>
         <p>Number: {number}</p>
         <p>Types: {types.join(", ")}</p>

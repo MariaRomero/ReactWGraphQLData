@@ -1,11 +1,9 @@
 import React from "react";
-import { shallow, configure } from "enzyme";
-import Pokemon from "./";
-import Adapter from "enzyme-adapter-react-16";
+import { shallow } from "enzyme";
+import Pokemon from "./Pokemon";
+import toJson from "enzyme-to-json";
 
-configure({ adapter: new Adapter() });
-
-test("Link changes the class when hovered", () => {
+test("Renders Pokemon when props are passed", () => {
   const component = (
     <Pokemon
       item={{
@@ -20,8 +18,5 @@ test("Link changes the class when hovered", () => {
   );
 
   const wrapper = shallow(component);
-
-  //   let tree = component.toJSON();
-  //   expect(tree).toMatchSnapshot();
-  expect(wrapper).toMatchSnapshot();
+  expect(toJson(wrapper)).toMatchSnapshot();
 });

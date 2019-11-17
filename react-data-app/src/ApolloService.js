@@ -1,6 +1,5 @@
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
-
 import { onError } from "apollo-link-error";
 
 export const dataObj = () => {

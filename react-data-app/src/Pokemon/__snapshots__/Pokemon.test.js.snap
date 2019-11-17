@@ -1,3 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Link changes the class when hovered 1`] = `ShallowWrapper {}`;
+exports[`Renders Pokemon when props are passed 1`] = `
+<Fragment>
+  <div>
+    <img
+      alt="Pikachu"
+      className="pokemon-img"
+      src="hhtp://123"
+    />
+    <p>
+      Name: 
+      Pikachu
+    </p>
+    <p>
+      Number: 
+      001
+    </p>
+    <p>
+      Types: 
+      test
+    </p>
+    <p>
+      Resistant: 
+      blah
+    </p>
+    <p>
+      Weaknesses: 
+      Hello, World
+    </p>
+  </div>
+</Fragment>
+`;

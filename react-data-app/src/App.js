@@ -1,9 +1,10 @@
 import React, { useState, Fragment } from "react";
-import "./App.css";
 import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
 import ReactList from "react-list";
-import Pokemon from "./Pokemon";
+import gql from "graphql-tag";
+
+import "./App.css";
+import Pokemon from "./Pokemon/Pokemon";
 
 const GET_POKEMON_INFO = gql`
   {
