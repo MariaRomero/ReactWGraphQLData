@@ -1,5 +1,5 @@
 import React from "react";
-import "./Pokemon.css";
+import "./pokemon.css";
 
 const Pokemon = ({
   item: { name, number, types, resistant, image, weaknesses }
