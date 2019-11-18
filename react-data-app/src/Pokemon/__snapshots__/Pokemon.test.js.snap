@@ -1,33 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Renders Pokemon when props are passed 1`] = `
-<Fragment>
-  <div>
-    <img
-      alt="Pikachu"
-      className="pokemon-img"
-      src="hhtp://123"
-    />
-    <p>
-      Name: 
-      Pikachu
-    </p>
-    <p>
-      Number: 
-      001
-    </p>
-    <p>
-      Types: 
-      test
-    </p>
-    <p>
-      Resistant: 
-      blah
-    </p>
-    <p>
-      Weaknesses: 
-      Hello, World
-    </p>
-  </div>
-</Fragment>
+<div>
+  <img
+    alt="Pikachu"
+    class="pokemon-img"
+    src="hhtp://123"
+  />
+  <p
+    class="poke-text"
+  >
+    Name: 
+    Pikachu
+  </p>
+  <p
+    class="poke-text"
+  >
+    Number: 
+    001
+  </p>
+  <p
+    class="poke-text"
+  >
+    Types: 
+    test
+  </p>
+  <p
+    class="poke-text"
+  >
+    Resistant: 
+    blah
+  </p>
+  <p
+    class="poke-text"
+  >
+    Weaknesses: 
+    Hello, World
+  </p>
+</div>
 `;

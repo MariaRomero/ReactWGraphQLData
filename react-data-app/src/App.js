@@ -6,7 +6,7 @@ import gql from "graphql-tag";
 import "./App.css";
 import Pokemon from "./Pokemon/Pokemon";
 
-const GET_POKEMON_INFO = gql`
+export const GET_POKEMON_INFO = gql`
   {
     pokemons(first: 151) {
       id
@@ -21,18 +21,19 @@ const GET_POKEMON_INFO = gql`
 `;
 
 function App() {
-  const { data, error } = useQuery(GET_POKEMON_INFO);
+  const { loading, data, error } = useQuery(GET_POKEMON_INFO);
   const [currentPokemon, setCurrentPokemon] = useState(null);
-
-  if (error) return <div>Error! {error.message}</div>;
 
   const handleClick = (event, pokemonId) => {
     setCurrentPokemon(data.pokemons[pokemonId]);
   };
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error.message}</p>;
+
   return (
     <Fragment>
-      {!data ? <p>loading</p> : <h1>Pokemon List</h1>}
+      <h1>Pokemon List</h1>
       <div className="container">
         <div className="poke-list">
           {data && data.pokemons && (
@@ -45,11 +46,14 @@ function App() {
                     onClick={event => handleClick(event, index)}
                   >
                     <img
+                      className="avatar"
                       alt={data.pokemons[index]["name"]}
                       src={data.pokemons[index]["image"]}
                     />
-                    {data.pokemons[index]["name"]} -
-                    {data.pokemons[index]["number"]}
+                    <p className="text">
+                      {data.pokemons[index]["name"]}-
+                      {data.pokemons[index]["number"]}
+                    </p>
                   </div>
                 );
               }}

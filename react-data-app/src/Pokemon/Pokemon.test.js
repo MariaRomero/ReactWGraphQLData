@@ -1,10 +1,10 @@
 import React from "react";
-import { shallow } from "enzyme";
 import Pokemon from "./Pokemon";
-import toJson from "enzyme-to-json";
+import { render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 
 test("Renders Pokemon when props are passed", () => {
-  const component = (
+  const { container } = render(
     <Pokemon
       item={{
         name: "Pikachu",
@@ -17,6 +17,5 @@ test("Renders Pokemon when props are passed", () => {
     />
   );
 
-  const wrapper = shallow(component);
-  expect(toJson(wrapper)).toMatchSnapshot();
+  expect(container.firstChild).toMatchSnapshot();
 });
