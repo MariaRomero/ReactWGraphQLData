@@ -1,0 +1,23 @@
+.container {
+  height: calc(100vh - 0px);
+}
+
+.poke-list {
+  overflow: auto;
+  width: 40%;
+  display: inline-block;
+  height: calc(100% - 200px);
+}
+
+.poke-selected {
+  height: 20px;
+  padding: 6px 6px;
+}
+.avatar {
+  height: 20px;
+  padding: 0 6px;
+}
+
+.text {
+  display: inline;
+}
