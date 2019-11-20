@@ -4,8 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Task
 
-I have set up a single page React application that consumes data via a GraphQL endpoint and displays that data on the page using components.
-The data will come in the form of a list of Pokemon, these should be displayed as a list and each one should click to select an individual Pokemon stats view next to the list.
+I have set up a single page application using React that consumes data via a GraphQL endpoint and displays the response on screen.
+The data will come in the form of an array of Pokemons, these should be displayed as a list and each one should be clickable to redirect the user to another page with more details about the item selected.
 
 ## Technical details
 
@@ -19,6 +19,22 @@ The project should be executed with the following commands:
 `npm run test` for local unit testing which must pass.
 
 I am using GraphQL connectivity tool [Apollo](https://www.apollographql.com)
+
+### Styling
+
+    As this is a small project and because of time constrains the CSS used here is not  great for scalability, given more time I would have used something like Styled Components or CSS Modules.
+
+### What I enjoyed.
+
+    I had never used GraphQL, React Router or Apollo before, I found the documentation very straight forward with lots of easy to follow examples online, I was surprised to see how easy it was to use GraphQL which also made the project enjoyable.
+
+### The building processed
+
+    I tried to commit as often as possible to show the steps I was taking and tried to describe in the commit my understanding of the process.
+
+### Testing
+
+    I was debating between what framework to use and how to pick the best tool for the job,I ended up going for React Testing Library, I could have probably used more tests scenarios but again because of timing couldn't be completed.
 
 ## Acceptance criteria
 
@@ -48,8 +64,6 @@ I am using GraphQL connectivity tool [Apollo](https://www.apollographql.com)
     As a user
     When I land on a specific entity in the application
     A single Pokemon should be displayed
-
-I have achived the below AC with one twist I didn't make the user navigate to a different page, I'm displaying the detail view on the same page
 
 ### Navigation
 

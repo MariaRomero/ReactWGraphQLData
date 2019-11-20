@@ -12,6 +12,7 @@
 .poke-selected {
   height: 20px;
   padding: 6px 6px;
+  display: block;
 }
 .avatar {
   height: 20px;

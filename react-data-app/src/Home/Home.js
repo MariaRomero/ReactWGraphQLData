@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import ReactList from "react-list";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./home.css";
 
 export const Home = props => {
@@ -14,7 +14,6 @@ export const Home = props => {
           <ReactList
             itemRenderer={(index, key) => {
               return (
-                // <Router>
                 <Link
                   to={`/${data.pokemons[index]["id"]}`}
                   Home
@@ -31,7 +30,6 @@ export const Home = props => {
                     {data.pokemons[index]["number"]}
                   </p>
                 </Link>
-                // </Router>
               );
             }}
             length={data.pokemons.length}
