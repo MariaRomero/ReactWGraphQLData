@@ -46,11 +46,11 @@ function App() {
 const Child = props => {
   let { id } = useParams();
   const pokemonSelected = props.data.pokemons.find(e => e.id === id);
-  pokemonSelected ? (
-    <Pokemon item={pokemonSelected} />
-  ) : (
-    <div>Sorry there was a problem loading this page</div>
-  );
+  if (pokemonSelected) {
+    return <Pokemon item={pokemonSelected} />;
+  } else {
+    return <div>Sorry there was a problem loading this page</div>;
+  }
 };
 
 export default App;
