@@ -15,7 +15,7 @@ export const Home = props => {
             itemRenderer={(index, key) => {
               return (
                 <Link
-                  to={`/${data.pokemons[index]["id"]}`}
+                  to={`/${data.pokemons[index]["name"]}`}
                   Home
                   className="poke-selected"
                   key={key}

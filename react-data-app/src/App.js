@@ -37,20 +37,22 @@ function App() {
         <Route exact path="/">
           <Home data={data} />
         </Route>
-        <Route path="/:id" children={<Child data={data} />} />
+        <Route path="/:name" children={<Child data={data} />} />
       </Switch>
     </Router>
   );
 }
 
 const Child = props => {
-  let { id } = useParams();
-  const pokemonSelected = props.data.pokemons.find(e => e.id === id);
-  if (pokemonSelected) {
-    return <Pokemon item={pokemonSelected} />;
-  } else {
-    return <div>Sorry there was a problem loading this page</div>;
-  }
+  let { name } = useParams();
+  const pokemonSelected = props.data.pokemons.find(e => e.name === name);
+  console.log(pokemonSelected);
+
+  return pokemonSelected ? (
+    <Pokemon item={pokemonSelected} />
+  ) : (
+    <div>Sorry there was a problem loading this page</div>
+  );
 };
 
 export default App;
